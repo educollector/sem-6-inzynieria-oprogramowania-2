@@ -1,0 +1,39 @@
+1. Temat projektu informatycznego
+2. Funkcjonalnoœci Si - 4-5szt.
+3. Wybór CASE-a / metodyka
+4. Model - 3 ró¿ne diagramy - diagram przypadków u¿ycia, daigram klas
+modeluj¹ czêœc aktywn¹ i czêœ pasywn¹ (model danych i funkcjonalnoœæ)
+5. Opis mo¿liwoœci CASE-a - komponenty narzêdzia CASE (slad z wyk¹³dów) - pokazaæ, ¿e wybrane narzêdzie zawiera wszystkei elementy
+
+
+Aleksandra Skierbiszewska Z502
+
+Temat: System przyjmowania zleceñ i wydawania wyników dla sieci laboratoriów analitycznych
+
+Funkcjonalnoœci:
+- Dodawanie zleceñ (dane pacjenta, lista badañ do wykonania)
+--> ZlecenieController przyjmijZlecenie(Zlecenie)
+
+- Ksiêgowanie p³atnoœci
+--> Zlecenie przyjmijPlatnosc(Platnosc)
+
+- Przydzielanie zlecenia do wybranego laboratorium sieci
+--> Terminarz pierwszyWolnyTernin(int liczbaBadan) : Pair<Pracownik,DateTime>
+--> Terminarz + znajdzWolneTerminy(DateTime, DateTime, int liczbaBadan) : List<Pair<Pracownik, DateTime>>
+
+- Wprowadzanie wyników badañ przez laboratorium wykonuj¹ce zlecenie
+--> ZlecenieController getZlecenia() : List<Zlecenie>
+--> metody typu get i set dla badan danego Zlecenia
+
+- Filtrowanie zleceñ wg podanego kryterium
+--> Zlecenie szukajZlecenia(DataTime, DataTime): List<Zlecenie>
+--> Zlecenie szukajZleceniaZgloszonePrzez(Pracownik): List<Zlecenie>
+--> Zlecenie szukajZlecenia(Klient): List<Zlecenie>
+--> Zlecenie szukajZleceniaWykonanePrzez(Pracownik): List<Zlecenie>
+--> Zlecenie szukajZleceniaBadanieTyp): List<Zlecenie>
+
+- Generowanie i drukowanie raportu z wynikami
+--> Zlecenie wydrukujRaport()
+
+- Powiadamianie o statusie zlecenia
+-->powiadomOstatusieZlecenia()
